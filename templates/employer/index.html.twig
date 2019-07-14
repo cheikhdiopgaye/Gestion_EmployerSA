@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmployerController!{% endblock %}
+
+{% block body %}
+<section class="employers">
+    <div class="table-responsive" id="sailorTableArea">
+        <table id="sailorTable" class="table table-striped table-bordered" width="100%">
+            <thead class="thead-dark">
+                <tr>
+                   
+                    <th scope="col">Matricule</th>
+                    <th scope="col">Nom Complet</th>
+                    <th scope="col">Date de naissance</th> 
+                    <th scope="col">Montant de salaire(FCFA)</th>
+                    <th scope="col">Service</th>
+                    <th scope="col">Plus de detail</th>
+                    <th scope="col">Modifier</th>
+                    {<th scope="col">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>  
+                {% for employer in employers  %}
+                    <tr>
+                        <td>{{employer.matricule}}</td>
+                        <td>{{employer.nom}}</td> 
+                        <td>{{employer.naissance | date('d/m/Y')}}</td>
+                        <td>{{employer.salaire}}</td>
+                        <td>{{employer.services.libelle}}</td>
+                        <td><a href="{{path('employer_show', {'id' : employer.id})}}" class="btn btn-info">Plus d'infos</a> </td>
+                        <td><a href="{{path('employer_edit', {'id' : employer.id})}}" class="btn btn-success">Modifier</a> </td>
+                        {<td><a href="{{path('employer_delete', {'id' : employer.id})}}" class="btn btn-danger delete-employers">Supprimer</a> </td>
+                    </tr>
+                    <br>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}
+ {% block javascripts %}
+    <script src="/js/main.js"></script>
+ {% endblock %} 

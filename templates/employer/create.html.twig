@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+{% form_theme formEmployer 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <h3>Enregistrement d'employers</h3>
+    
+    {{form_start(formEmployer)}}
+
+        {{form_widget(formEmployer)}}
+
+        <button type="submit" class="btn btn-primary">
+            {% if editMode %}
+                Enregistrer les modifications
+            {% else %}
+                Ajouter un employer
+            {% endif%}
+        </button>
+    {{form_end(formEmployer)}}
+    
+{% endblock %}

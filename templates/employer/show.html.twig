@@ -1,0 +1,27 @@
+{% extends 'base.html.twig'%}
+
+{% block body %}
+
+<section>
+<div class="row  " style="margin-top:50px;">
+
+    <div class="col-6">
+        
+         <img style = "height: 300px; width: 80%; display: block;" src="{{employers.photo}}" >
+    </div>
+
+    <div  style = "max-width: 80%;" class="col-6">
+        <h3>Les informations sur {{employers.nom}}</h3>
+        <ul>
+            <li>{{employers.matricule}}</li>
+            <li>{{employers.nom}}</li>
+            
+            <li>{{employers.salaire}}</li>
+            <li>{{employers.services.libelle}}</li>
+         </ul>
+           
+    </div>
+</div>
+</section>
+
+{% endblock %}
